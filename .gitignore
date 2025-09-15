@@ -1,0 +1,4 @@
+cli-tool
+src/*.o
+test_core
+test_cli
