@@ -17,11 +17,18 @@ vim --cmd "set path+=$(vimpathfind c h)"
 ## Build
 
 ```sh
+./configure
 make
 ```
 
 ## Test
 
 ```sh
-make test
+make check
+
+```
+## Install 
+
+ ```sh
+sudo make install
 ```
