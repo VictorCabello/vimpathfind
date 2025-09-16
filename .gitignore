@@ -1,4 +1,4 @@
-cli-tool
+vimfindpath
 src/*.o
 test_core
 test_cli

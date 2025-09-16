@@ -4,18 +4,20 @@ CFLAGS=-I./include -I./src
 SRC=$(wildcard src/*.c)
 OBJ=$(SRC:.c=.o)
 
-all: cli-tool
+all: vimfindpath
 
-cli-tool: $(OBJ)
-	$(CC) $(CFLAGS) -o cli-tool $(OBJ)
+vimfindpath: $(OBJ)
+	$(CC) $(CFLAGS) -o vimfindpath $(OBJ)
 
 clean:
-	rm -f src/*.o cli-tool
+	rm -f src/*.o vimfindpath
 
-test: cli-tool
-	$(CC) $(CFLAGS) tests/test_core.c src/core.c -o test_core
+test: vimfindpath
+	$(CC) $(CFLAGS) src/list.c tests/test_list.c  -o test_cli
+	./test_cli
+	$(CC) $(CFLAGS)  tests/test_core.c src/core.c src/list.c -o test_core
 	./test_core
-	$(CC) $(CFLAGS) tests/test_cli.c src/cli.c src/core.c -o test_cli
+	$(CC) $(CFLAGS) tests/test_cli.c src/cli.c src/core.c src/list.c -o test_cli
 	./test_cli
 
 .PHONY: all clean test
