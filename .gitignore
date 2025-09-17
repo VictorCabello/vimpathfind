@@ -1,5 +1,8 @@
 vimfindpath
+src/vimfindpath
 src/*.o
+src/Makefile
+tests/Makefile
 test_core
 test_cli
 /Makefile
